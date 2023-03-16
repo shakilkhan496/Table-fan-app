@@ -4,7 +4,7 @@ import { hover } from '@testing-library/user-event/dist/hover';
 import { useState } from 'react';
 
 function App() {
-  const [fast, setFast] = useState(true);
+  const [fast, setFast] = useState(false);
 
   const handleSpeed = () => {
     setFast(!fast);
@@ -13,13 +13,17 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Dream FAN</h1>
-        <img style={{ borderRadius: '50%' }} src={'https://i.ibb.co/nQ4gNP6/pngwing-com-1.png'} className={fast === true ? 'App-logo' : 'appTo'} alt="logo" />
+      <header style={{
+        backgroundImage: `url("https://i.gifer.com/tRm.gif")`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover',
+      }} className="App-header">
+        <div className='titleT'>
+          <h2>{fast === true ? 'ReacTor status : ON' : 'ReacTor status : OFF'}</h2>
+        </div>
+        <img style={{ borderRadius: '50%', height: '350px', width: '350px' }} src={'https://i.ibb.co/FWRVR9f/output-onlinegiftools-1.gif'} className={fast === true ? 'App-logo' : 'appTo'} alt="logo" />
         <p>
-          Table Fan
+          Press the button
         </p>
-        <button style={{ borderRadius: '50%', width: '80px', height: '80px', fontWeight: 'bold' }} onClick={handleSpeed}>{fast === true ? 'Off' : 'On'}</button>
+        <button style={{ borderRadius: '30%', width: '100px', height: '80px', fontWeight: 'bold' }} onClick={handleSpeed}>{fast === true ? 'OFF' : 'On'}</button>
       </header>
     </div>
   );
