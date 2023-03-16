@@ -1,22 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import { hover } from '@testing-library/user-event/dist/hover';
+import { useState } from 'react';
 
 function App() {
+  const [fast, setFast] = useState(true);
+
+  const handleSpeed = () => {
+    setFast(!fast);
+    console.log(fast);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <h1>Dream FAN</h1>
+        <img style={{ borderRadius: '50%' }} src={'https://i.ibb.co/nQ4gNP6/pngwing-com-1.png'} className={fast === true ? 'App-logo' : 'appTo'} alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Table Fan
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button style={{ borderRadius: '50%', width: '80px', height: '80px', fontWeight: 'bold' }} onClick={handleSpeed}>{fast === true ? 'Off' : 'On'}</button>
       </header>
     </div>
   );
